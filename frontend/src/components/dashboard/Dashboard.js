@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import CareerRecommendation from './CareerRecommendation';
+import JobOpportunities from './JobOpportunities';
+import MentorshipGuidance from './MentorshipGuidance';
+import ResumePortfolioBuilder from './ResumePortfolioBuilder';
+import NotificationsReminders from './NotificationsReminders';
+import AnalyticsReports from './AnalyticsReports';
 
 const Dashboard = () => {
   const [userData, setUserData] = useState({
@@ -82,10 +87,13 @@ const Dashboard = () => {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      {/* Welcome Section */}
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900">Welcome, {userData.name}!</h1>
-        <p className="text-gray-600">Here's your career development overview</p>
+      {/* Welcome Section with Notifications */}
+      <div className="mb-8 flex justify-between items-start">
+        <div>
+          <h1 className="text-3xl font-bold text-gray-900">Welcome, {userData.name}!</h1>
+          <p className="text-gray-600">Here's your career development overview</p>
+        </div>
+        <NotificationsReminders />
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -194,6 +202,30 @@ const Dashboard = () => {
         <DashboardCard title="Personalized Career Recommendations">
           <CareerRecommendation userData={userData} />
         </DashboardCard>
+      </div>
+
+      {/* Job & Internship Opportunities */}
+      <div className="mt-8">
+        <h2 className="text-2xl font-bold text-gray-900 mb-6">Job & Internship Opportunities</h2>
+        <JobOpportunities />
+      </div>
+
+      {/* Mentorship & Guidance */}
+      <div className="mt-8">
+        <h2 className="text-2xl font-bold text-gray-900 mb-6">Mentorship & Guidance</h2>
+        <MentorshipGuidance />
+      </div>
+
+      {/* Analytics & Reports */}
+      <div className="mt-8">
+        <h2 className="text-2xl font-bold text-gray-900 mb-6">Analytics & Reports</h2>
+        <AnalyticsReports userData={userData} />
+      </div>
+
+      {/* Resume & Portfolio Builder */}
+      <div className="mt-8">
+        <h2 className="text-2xl font-bold text-gray-900 mb-6">Resume & Portfolio Builder</h2>
+        <ResumePortfolioBuilder />
       </div>
     </div>
   );

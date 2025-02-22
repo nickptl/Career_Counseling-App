@@ -32,6 +32,15 @@ const Navigation = () => {
                 <Link to="/profile" className="hover:bg-indigo-700 px-3 py-2 rounded">
                   Profile
                 </Link>
+                <Link to="/services" className="hover:bg-indigo-700 px-3 py-2 rounded">
+                  Services
+                </Link>
+                <Link to="/about" className="hover:bg-indigo-700 px-3 py-2 rounded">
+                  About
+                </Link>
+                <Link to="/contact" className="hover:bg-indigo-700 px-3 py-2 rounded">
+                  Contact
+                </Link>
                 <button
                   onClick={handleLogout}
                   className="hover:bg-indigo-700 px-3 py-2 rounded"

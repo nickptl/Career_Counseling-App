@@ -22,11 +22,11 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
             <p className="text-gray-300">Email: info@careerguidance.com</p>
-            <p className="text-gray-300">Phone: +1 234 567 890</p>
+            <p className="text-gray-300">Phone: 7984076356</p>
           </div>
         </div>
         <div className="mt-8 border-t border-gray-700 pt-8 text-center">
-          <p className="text-gray-300">© 2024 Career Guidance. All rights reserved.</p>
+          <p className="text-gray-300">© 2025 Career Guidance. All rights reserved.</p>
         </div>
       </div>
     </footer>
