@@ -4,6 +4,9 @@ import cors from "cors";
 import mongoose from "mongoose";
 import authRoutes from './routes/authRoutes.js';
 import userRoutes from './routes/userRoutes.js';
+import careerRoutes from './routes/careerRoutes.js';
+import portfolioRoutes from './routes/portfolioRoutes.js';
+import analyticsRoutes from './routes/analyticsRoutes.js';
 
 dotenv.config();
 const app = express();
@@ -35,6 +38,9 @@ mongoose
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/user', userRoutes);
+app.use('/api/career', careerRoutes);
+app.use('/api/portfolio', portfolioRoutes);
+app.use('/api/analytics', analyticsRoutes);
 
 app.get("/", (req, res) => {
   res.send("Career Counseling API is running...");

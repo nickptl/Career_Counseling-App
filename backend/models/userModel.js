@@ -10,12 +10,15 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Please add an email'],
     unique: true,
-    match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please add a valid email'],
   },
   password: {
     type: String,
     required: [true, 'Please add a password'],
-    minlength: 6,
+  },
+  role: {
+    type: String,
+    enum: ['user', 'admin'],
+    default: 'user',
   },
   profile: {
     age: Number,
@@ -26,25 +29,71 @@ const userSchema = new mongoose.Schema({
   careerPreferences: {
     industries: [String],
     roles: [String],
-    aspirations: String,
+    locations: [String],
+    salaryExpectation: String,
   },
   skills: [{
     name: String,
-    level: String,
+    level: Number,
+    endorsements: Number,
   }],
   certifications: [{
     name: String,
     issuer: String,
-    date: String,
+    date: Date,
+    verificationLink: String,
   }],
-  assessmentHistory: [{
-    name: String,
-    date: String,
-    score: String,
-    status: String,
+  portfolio: [{
+    title: String,
+    description: String,
+    technologies: [String],
+    image: String,
+    link: String,
+    featured: Boolean,
+  }],
+  resume: {
+    education: [{
+      institution: String,
+      degree: String,
+      field: String,
+      startDate: Date,
+      endDate: Date,
+      grade: String,
+    }],
+    experience: [{
+      company: String,
+      position: String,
+      startDate: Date,
+      endDate: Date,
+      description: String,
+    }],
+    skills: [String],
+    template: String,
+  },
+  mentorship: {
+    isMentor: Boolean,
+    mentorProfile: {
+      expertise: [String],
+      experience: String,
+      availability: String,
+      rating: Number,
+    },
+    mentoringSessions: [{
+      mentorId: mongoose.Schema.Types.ObjectId,
+      date: Date,
+      status: String,
+      notes: String,
+    }],
+  },
+  notifications: [{
+    type: String,
+    message: String,
+    date: Date,
+    isRead: Boolean,
+    link: String,
   }],
 }, {
-  timestamps: true,
+  timestamps: true
 });
 
 // Hash password before saving
